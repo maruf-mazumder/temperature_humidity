@@ -4,6 +4,7 @@
     <title>My EJS App</title>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="index.css">
 </head>
 
 <style>
@@ -13,11 +14,28 @@
     }
   </style>
 <body>
-    <h1>Welcome to <%= title %></h1>
+    <h1 class="container heading">Welcome to <%= title %></h1>
+    <div class="container flex-row mb">
+        <div class="data">
+            <h2 class="label">Temperature</h2>
+            <h2><span id="temperature"><%= temperature[0].temperature %></span>°C</h2>
+        </div>
+        <div class="data">
+          <h2 class="label">Humidity</h2>
+          <h2><span id="humidity"><%= humidity[0].humidity %></span> %</h2>
+        </div>
+    </div>
+    <div class="container flex-row mb">
+        <div class="charts">
+            <canvas id="myChart"  width="300" height="300"></canvas>
+        </div>
+        <div class="charts">
+            <canvas id="myTemperature"  width="300" height="300"></canvas>
+        </div>
+    </div>
 
 
-    <canvas id="myChart"  width="300" height="300"></canvas>
-    <canvas id="myTemperature"  width="300" height="300"></canvas>
+    
     <!-- <article>
         <h4>Humidity</h4>
         <p>
@@ -74,6 +92,7 @@
             // Chart options
           }
         });
+
 
 
     //     setTimeout(function() {
